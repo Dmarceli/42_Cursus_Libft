@@ -6,7 +6,7 @@
 /*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 12:34:15 by dmarceli          #+#    #+#             */
-/*   Updated: 2021/10/21 13:23:35 by dmarceli         ###   ########.fr       */
+/*   Updated: 2021/10/21 15:18:14 by dmarceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *b, size_t n);
 void				*ft_memcpy(void *dest, const void *src, size_t n);
 void				*ft_memcpy(void *str1, const void *str2, size_t n);
-void				*ft_memmove(void *dest, const void *src, size_t n);
+void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *b, int c, size_t n);
 int					ft_memcmp(const void *b1, const void *b2, size_t n);
 unsigned int		ft_strlen(char *str);
@@ -67,7 +67,6 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
-
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *lst);
