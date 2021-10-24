@@ -1,47 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/20 11:06:12 by dmarceli          #+#    #+#             */
-/*   Updated: 2021/10/24 18:21:46 by dmarceli         ###   ########.fr       */
+/*   Created: 2021/10/24 17:18:22 by dmarceli          #+#    #+#             */
+/*   Updated: 2021/10/24 18:06:06 by dmarceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
-	char	*c;
+	size_t	j;
 
-	c = s;
 	i = 0;
-	while (i < n)
+	j = 0;
+	if (needle[j] == '\0')
+		return ((char *)haystack);
+	while (i < len && haystack != '\0')
 	{
-		c[i] == "\0";
+		if (haystack[i] == needle[j])
+		{
+			while (needle[j] == haystack[i + j] && needle[j] != '\0')
+			{
+				j++;
+			}
+			if (needle[j] == '\0')
+				return ((char *)haystack + i);
+		}
 		i++;
-		n--;
 	}
+	return (0);
 }
-
-// #include <string.h>
-// #include <stdio.h>
-// int main (void)
-// {
-//     char s[100] = "vou de cana";
-//     printf("--------Test de ft_bzero-------\n");
-// 	bzero(s, 3);
-// 	ft_bzero(s, 3);
-// 	int		i;
-// 	i = 0;
-// 	while (i < 5 && s[i] == s[i])
-// 		i++;
-// 	if (i == 5)
-// 		printf("OK\n");
-// 	else
-// 		printf("Failed");
-
-// }

@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 11:08:43 by dmarceli          #+#    #+#             */
-/*   Updated: 2021/10/24 15:47:30 by dmarceli         ###   ########.fr       */
+/*   Created: 2021/10/24 15:12:34 by dmarceli          #+#    #+#             */
+/*   Updated: 2021/10/24 15:19:27 by dmarceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *str1, const void *str2, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
+	char	*str;
 
-	i = 0;
-	while (i < n)
+	str = (char *)s;
+	while (*str != c)
 	{
-		((unsigned char *)str1)[i] = ((unsigned char *)str2)[i];
-		i++;
+		if (*str == '\0')
+		{
+			return (NULL);
+		}
+		str++;
 	}
-	return (str1);
+	return (str);
 }
-
-// int main(void)
-// {
-// 	char	src[50] = "daniggrande";
-// 	char	dest[50];
-// 	printf("%s", ft_memcpy(dest, src, 6));
-// 	return (0);
-// }

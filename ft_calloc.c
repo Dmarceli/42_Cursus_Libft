@@ -1,47 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/20 11:06:12 by dmarceli          #+#    #+#             */
-/*   Updated: 2021/10/24 18:21:46 by dmarceli         ###   ########.fr       */
+/*   Created: 2021/10/24 18:06:46 by dmarceli          #+#    #+#             */
+/*   Updated: 2021/10/24 18:25:32 by dmarceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*calloc(size_t count, size_t size)
 {
-	size_t	i;
-	char	*c;
+	char	*ptr;
+	int		i;
 
-	c = s;
 	i = 0;
-	while (i < n)
+	ptr = malloc(count * size);
+	if (ptr == NULL)
+		return (ptr);
+	while (i < count)
 	{
-		c[i] == "\0";
+		ptr[i] = 0;
 		i++;
-		n--;
 	}
+	return (ptr);
 }
-
-// #include <string.h>
-// #include <stdio.h>
-// int main (void)
-// {
-//     char s[100] = "vou de cana";
-//     printf("--------Test de ft_bzero-------\n");
-// 	bzero(s, 3);
-// 	ft_bzero(s, 3);
-// 	int		i;
-// 	i = 0;
-// 	while (i < 5 && s[i] == s[i])
-// 		i++;
-// 	if (i == 5)
-// 		printf("OK\n");
-// 	else
-// 		printf("Failed");
-
-// }
