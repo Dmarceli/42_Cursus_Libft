@@ -6,7 +6,7 @@
 /*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 18:06:46 by dmarceli          #+#    #+#             */
-/*   Updated: 2021/10/24 18:25:32 by dmarceli         ###   ########.fr       */
+/*   Updated: 2021/10/25 19:38:11 by dmarceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*calloc(size_t count, size_t size)
 {
-	char	*ptr;
-	int		i;
+	char			*ptr;
+	unsigned int	i;
 
 	i = 0;
 	ptr = malloc(count * size);

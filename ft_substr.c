@@ -6,10 +6,10 @@
 /*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 19:26:08 by dmarceli          #+#    #+#             */
-/*   Updated: 2021/10/24 19:27:20 by dmarceli         ###   ########.fr       */
+/*   Updated: 2021/10/25 20:11:10 by dmarceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char *ft_substr(char const *s, unsigned int start, size_t len);
