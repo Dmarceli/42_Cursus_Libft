@@ -6,7 +6,7 @@
 #    By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/25 19:15:37 by dmarceli          #+#    #+#              #
-#    Updated: 2021/10/25 20:14:24 by dmarceli         ###   ########.fr        #
+#    Updated: 2021/10/25 20:39:47 by dmarceli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,8 @@ SRCS = ft_atoi.c\
 		ft_substr.c\
 		ft_tolower.c\
 		ft_toupper.c\
+		ft_substr.c\
+		
 
 SRCS_B = 
 OBJS = ${SRCS:.c=.o}

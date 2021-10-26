@@ -26,9 +26,9 @@ int	ft_isalnum(int c)
 
 /* #include <stdio.h>
 #include <ctype.h>
-int main()
+int	main()
 {
-    char teste = '.';
-    printf("%d\n" , ft_isalnum(teste));
-    
+	char teste = '.';
+	printf("%d\n" , ft_isalnum(teste));
+
 } */

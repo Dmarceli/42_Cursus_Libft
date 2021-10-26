@@ -6,7 +6,7 @@
 /*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 11:06:12 by dmarceli          #+#    #+#             */
-/*   Updated: 2021/10/25 19:37:03 by dmarceli         ###   ########.fr       */
+/*   Updated: 2021/10/26 12:21:18 by dmarceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,10 @@ void	ft_bzero(void *s, size_t n)
 	size_t	i;
 	char	*c;
 
-	c = s;
-	i = 0;
-	while (i < n)
-	{
+	c = (char *)s;
+	i = -1;
+	while (++i < n)
 		c[i] = 0;
-		i++;
-		n--;
-	}
 }
 
 // #include <string.h>
