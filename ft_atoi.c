@@ -6,7 +6,7 @@
 /*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 11:06:06 by dmarceli          #+#    #+#             */
-/*   Updated: 2021/10/21 13:02:19 by dmarceli         ###   ########.fr       */
+/*   Updated: 2021/10/28 15:12:03 by dmarceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,30 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	nb;
-	int	neg;
+	int			sign;
+	long long	num;
 
-	i = 0;
-	neg = 1;
-	nb = 0;
-	while (str[i] == '\f' || str[i] == '\r' || str[i] == '\n' ||
-			str[i] == '\v' || str[i] == '\t' || str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	sign = 1;
+	num = 0;
+	while ((*str == 32) || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == 45)
 	{
-		if (str[i] == '-')
-			neg *= -1;
-		i++;
+		sign *= -1;
+		str++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	else if (*str == 43)
+		str++;
+	while (*str >= 48 && *str <= 57)
 	{
-		nb = nb * 10 + (str[i] - 48);
-		i++;
+		num = num * 10;
+		num += (sign * (*(str++) - '0'));
+		if (num > 2147483647)
+			return (-1);
+		if (num < -2147483648)
+			return (0);
 	}
-	return (nb * neg);
+	return (num);
 }
 
 // #include <stdio.h>

@@ -6,7 +6,7 @@
 /*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 18:26:45 by dmarceli          #+#    #+#             */
-/*   Updated: 2021/10/25 20:02:10 by dmarceli         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:36:05 by dmarceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strdup(const char *str)
 
 	too = (char *)str;
 	str2 = (char *)malloc(ft_strlen(too) * sizeof(char));
+	if (!str2)
+		return (0);
 	p = 0;
 	while (str[p])
 	{

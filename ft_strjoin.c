@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/26 13:09:01 by dmarceli          #+#    #+#             */
-/*   Updated: 2021/10/26 17:08:32 by dmarceli         ###   ########.fr       */
+/*   Created: 2021/10/28 15:28:13 by dmarceli          #+#    #+#             */
+/*   Updated: 2021/10/28 17:25:49 by dmarceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,28 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*res;
-	int		size;
+	char	*new;
+	int		i;
+	int		j;
 
-	size = ft_strlen(s1) + ft_strlen(s2) + 1;
-	res = ft_calloc(size, 1);
-	if (!s1 && !s2)
+	if (!s1 || !s2)
 		return (0);
-	if (!s1)
-		return ((char *)s2);
-	if (!s2)
-		return ((char *)s1);
-	if (res)
+	new = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1 * sizeof(char));
+	if (!new)
+		return (0);
+	i = 0;
+	j = 0;
+	while (s1[i] != '\0')
 	{
-		ft_strlcat(res, s1, size);
-		ft_strlcat(res, s2, size);
-		return (res);
+		new[i] = s1[i];
+		i++;
 	}
-	return (0);
-}
-
-int main()
-{
- char    *string;
- string = ft_strjoin("ola", " tudo bem?");
- printf("%s\n", string);
- free(string);
- return 0;
+	while (s2[j] != '\0')
+	{
+		new[i] = s2[j];
+		j++;
+		i++;
+	}
+	new[i] = '\0';
+	return (new);
 }

@@ -6,7 +6,7 @@
 #    By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/25 19:15:37 by dmarceli          #+#    #+#              #
-#    Updated: 2021/10/25 20:39:47 by dmarceli         ###   ########.fr        #
+#    Updated: 2021/10/28 17:33:45 by dmarceli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,12 +25,15 @@ SRCS = ft_atoi.c\
 		ft_memset.c\
 		ft_strchr.c\
 		ft_strdup.c\
+		ft_strjoin.c\
 		ft_strlcat.c\
+		ft_strlcpy.c\
 		ft_strlen.c\
 		ft_strncmp.c\
 		ft_strnstr.c\
 		ft_strrchr.c\
 		ft_strrev.c\
+		ft_strtrim.c\
 		ft_substr.c\
 		ft_tolower.c\
 		ft_toupper.c\

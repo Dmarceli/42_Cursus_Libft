@@ -6,13 +6,13 @@
 /*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 18:06:46 by dmarceli          #+#    #+#             */
-/*   Updated: 2021/10/25 19:38:11 by dmarceli         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:39:53 by dmarceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*calloc(size_t count, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
 	char			*ptr;
 	unsigned int	i;
@@ -26,5 +26,6 @@ void	*calloc(size_t count, size_t size)
 		ptr[i] = 0;
 		i++;
 	}
+	ptr[i] = '\0';
 	return (ptr);
 }
