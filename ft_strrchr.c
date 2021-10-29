@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/24 15:25:05 by dmarceli          #+#    #+#             */
-/*   Updated: 2021/10/28 15:01:00 by dmarceli         ###   ########.fr       */
+/*   Created: 2021/10/29 12:29:47 by dmarceli          #+#    #+#             */
+/*   Updated: 2021/10/29 12:33:00 by dmarceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,22 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*res;
+	int		i;
+	char	*y;
+	char	x;
 
-	if (c == 0)
-		return ((char *)s + (int)(ft_strlen(s)));
-	res = 0;
-	while (*s)
+	y = 0;
+	x = c;
+	i = 0;
+	while (s[i] != '\0')
 	{
-		if (*s == (char)c)
-			res = (char *)s;
-		s++;
+		if (s[i] == x)
+			y = (char *)&s[i];
+		i++;
 	}
-	return (res);
+	if (x == '\0')
+		return ((char *)&s[i]);
+	if (y != 0)
+		return (y);
+	return (0);
 }

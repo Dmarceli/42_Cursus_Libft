@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/24 18:26:45 by dmarceli          #+#    #+#             */
-/*   Updated: 2021/10/29 15:47:48 by dmarceli         ###   ########.fr       */
+/*   Created: 2021/10/29 16:59:00 by dmarceli          #+#    #+#             */
+/*   Updated: 2021/10/29 17:09:45 by dmarceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*str;
-
-	str = (char *)malloc(sizeof(*s1) * ft_strlen(s1) + 1);
-	if (!str)
-		return (0);
-	ft_strlcpy(str, s1, ft_strlen(s1) + 1);
-	str[ft_strlen(s1)] = '\0';
-	return (str);
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else
+	{
+		if (n < 0)
+		{
+			ft_putchar_fd('-', fd);
+			n = n * -1;
+		}
+		if (n >= 9)
+		{
+			ft_putnbr_fd(n / 10, fd);
+		}
+		ft_putchar_fd((n % 10) + '0', fd);
+	}
 }
