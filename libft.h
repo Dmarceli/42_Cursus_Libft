@@ -6,7 +6,7 @@
 /*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 12:34:15 by dmarceli          #+#    #+#             */
-/*   Updated: 2021/10/29 17:30:30 by dmarceli         ###   ########.fr       */
+/*   Updated: 2021/11/04 16:14:22 by dmarceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5000
-# endif
-
-# ifndef OPEN_MAX
-#  define OPEN_MAX 32
-# endif
 
 typedef struct s_list
 {
@@ -40,7 +32,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *b1, const void *b2, size_t n);
 unsigned int		ft_strlen(char const *str);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
-unsigned int		ft_strlcat(char *dest, char *src, unsigned int size);
+size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strnstr(const char *haystack, \
@@ -57,6 +49,7 @@ int					ft_toupper(int c);
 int					ft_tolower(int c);
 void				*ft_calloc(size_t count, size_t size);
 char				*ft_strdup(const char *str);
+void				ft_striteri(char *s, void (*f)(unsigned int, char *s));
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
@@ -67,6 +60,7 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+//bonus
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *lst);
@@ -75,12 +69,7 @@ void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
-t_list				*ft_lstmap(t_list *lst,
-						void *(*f)(void *), void (*del)(void *));
-char				*ft_strtok(char *str, char sepa);
-int					get_next_line(int fd, char **line);
-int					is_newline(char *backup);
-int					split_line(char **backup, char **line, int cut_idx);
-int					return_all(char **backup, char **line, int read_size);
+t_list				*ft_lstmap(t_list *lst, \
+void *(*f)(void *), void (*del)(void *));
 
 #endif

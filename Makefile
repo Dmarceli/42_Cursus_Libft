@@ -6,67 +6,41 @@
 #    By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/25 19:15:37 by dmarceli          #+#    #+#              #
-#    Updated: 2021/10/29 17:30:06 by dmarceli         ###   ########.fr        #
+#    Updated: 2021/11/04 15:47:05 by dmarceli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_atoi.c\
-		ft_bzero.c\
-		ft_calloc.c\
-		ft_isalnum.c\
-		ft_isalpha.c\
-		ft_isascii.c\
-		ft_isdigit.c\
-		ft_isprint.c\
-		ft_itoa.c\
-		ft_memchr.c\
-		ft_memcmp.c\
-		ft_memcpy.c\
-		ft_memmove.c\
-		ft_memset.c\
-		ft_putchar_fd.c\
-		ft_putendl_fd.c\
-		ft_putnbr_fd.c\
-		ft_putstr_fd.c\
-		ft_split.c\
-		ft_strchr.c\
-		ft_strdup.c\
-		ft_strjoin.c\
-		ft_strlcat.c\
-		ft_strlcpy.c\
-		ft_strlen.c\
-		ft_strmapi.c\
-		ft_strncmp.c\
-		ft_strnstr.c\
-		ft_strrchr.c\
-		ft_strrev.c\
-		ft_strtrim.c\
-		ft_substr.c\
-		ft_tolower.c\
-		ft_toupper.c\
-		ft_substr.c\
-		
-
-SRCS_B = 
-OBJS = ${SRCS:.c=.o}
-INCS = libft.h
-NAME = libft.a
-
-${NAME}: ${OBJS}
-	ar rcs ${NAME} ${OBJS}
-${BONUS}: ${OBJS_B}
-	ar rcs ${NAME} ${OBJS_B}
-
-all: ${NAME}
-
-bonus: ${BONUS}
-
+CC		= gcc
+CFLAGS	= -Wall -Wextra -Werror
+LIB1	= ar -rcs
+LIB2	= ranlib
+RM		= /bin/rm -f
+NAME	= libft.a
+INCLUDE	= libft.h
+SRCS	= ft_isascii.c ft_isprint.c ft_isalpha.c ft_isdigit.c ft_isalnum.c \
+			ft_tolower.c ft_toupper.c ft_strlen.c ft_strlcpy.c ft_strlcat.c \
+			ft_strchr.c ft_strrchr.c ft_strnstr.c ft_strncmp.c ft_atoi.c \
+			ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_striteri.c \
+			ft_memchr.c ft_memcmp.c ft_strdup.c ft_calloc.c ft_itoa.c \
+			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+			ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_strmapi.c
+OBJS	= $(SRCS:.c=.o)
+BONUS_S	= ft_lstsize.c ft_lstlast.c ft_lstadd_front.c ft_lstadd_back.c \
+			ft_lstnew.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+BONUS_O	= $(BONUS_S:.c=.o)
+all:		$(NAME)
+$(NAME):	$(OBJS) $(INCLUDE)
+			$(LIB1) $(NAME) $(OBJS)
+			$(LIB2) $(NAME)
+bonus:		$(NAME) $(BONUS_O)
+			$(LIB1) $(NAME) $(BONUS_O)
+			$(LIB2) $(NAME)
 .c.o:
-	gcc -Wall -Wextra -Werror -I ${INCS} -c $< -o ${<:c=o}
+			$(CC) $(CFLAGS) -I$(INCLUDE) -c $< -o $(<:.c=.o)
 clean:
-	rm -rf ${OBJS} ${OBJS_B}
-fclean: clean
-	rm -f ${NAME} ${BONUS}
-re: fclean all
-
-.PHONY: all bonus clean flean re .c.o
+			$(RM) $(OBJS) $(BONUS_O)
+fclean:		clean
+			$(RM) $(NAME)
+re:			fclean all
+rebonus:	fclean bonus
+.PHONY:		all clean fclean re bonus rebonus

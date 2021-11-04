@@ -6,33 +6,36 @@
 /*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 19:26:08 by dmarceli          #+#    #+#             */
-/*   Updated: 2021/10/28 14:06:37 by dmarceli         ###   ########.fr       */
+/*   Updated: 2021/11/04 16:25:02 by dmarceli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	char	*ptr;
-	size_t	index;
+	char	*substr;
+	size_t	i;
+	size_t	j;
 
 	if (!s)
 		return (NULL);
-	if (!len || ft_strlen(s) < start)
+	if (ft_strlen(s) < start)
 		return (ft_strdup(""));
-	if (ft_strlen(s) - start > len)
-		ptr = (char *)malloc((len + 1) * sizeof(char));
+	if (ft_strlen(s) < len)
+		substr = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
 	else
-		ptr = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
-	if (!ptr)
+		substr = (char *)malloc((len + 1) * sizeof(char));
+	if (!substr)
 		return (NULL);
-	index = 0;
-	while (index < len && s[start + index])
+	i = 0;
+	j = 0;
+	while (s[i])
 	{
-		ptr[index] = s[start + index];
-		index++;
+		if (i >= start && j < len)
+			substr[j++] = s[i];
+		i++;
 	}
-	ptr[index] = '\0';
-	return (ptr);
+	substr[j] = '\0';
+	return (substr);
 }
